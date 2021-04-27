@@ -1,0 +1,46 @@
+// SETTINGS
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+// MODELS
+model User {
+  id       String @id @default(uuid())
+  email    String @unique
+  password String
+  name     String
+  role     Role   @default(USER)
+  posts    Post[]
+}
+
+model Post {
+  id        String   @id @default(uuid())
+  title     String
+  body      String
+  picture   String?
+  published Boolean  @default(true)
+  category  Category
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  String?
+  createdAt DateTime @default(now())
+
+  @@index(fields: [title, body, category], name: "search_index")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Category {
+  FOOD
+  ANIMALS
+  TRAVEL
+  SCHOOL
+  IT
+}

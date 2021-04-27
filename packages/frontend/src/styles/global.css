@@ -1,0 +1,40 @@
+* {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  background: #44464e;
+  color: #ffffff;
+}
+
+input,
+textarea {
+  font-family: 'Nunito', sans-serif !important;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  user-select: none;
+  border: none;
+}
+
+pre {
+  background: transparent !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+  font-style: normal;
+}
